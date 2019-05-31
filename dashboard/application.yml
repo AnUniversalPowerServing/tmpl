@@ -1,0 +1,10 @@
+spring:
+   datasource: 
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/geocer?autoreconnect=true
+      username: root
+      password: 
+   mvc:
+      view:
+        prefix:  /pages/
+        suffix: .html
