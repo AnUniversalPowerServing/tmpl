@@ -164,7 +164,7 @@ function bootstrap_tabPillsNav_trigger(tabPillsNavbarContentMapper,mode, sel_Id,
  */
  var sel_mode = { "tabs" :"nav nav-tabs", "pills": "nav nav-pills","navbar":"nav navbar-nav" }
  if(($('ul[class="'+sel_mode[mode]+'"]>li#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
-  $('#'+sel_Id).parent('ul[class="'+sel_mode[mode]+'"]').children('li').removeAttr('class');
+  $('#'+sel_Id).parent('ul').children('li').removeAttr('class');
   $('#'+sel_Id).attr('class','active');
   var contents = tabPillsNavbarContentMapper[sel_Id]["contents"];
   if(contents.length>0){

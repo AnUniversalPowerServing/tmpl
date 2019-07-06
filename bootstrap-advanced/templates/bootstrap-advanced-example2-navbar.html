@@ -1,0 +1,52 @@
+<script type="text/javascript">
+var ALLOW_UPTO_INDEX=-1;
+function allow_upto_index(){
+ ALLOW_UPTO_INDEX = $('#navbar-allowUptoIndex').val() - 1;
+ sel_navbar('navbar-home');
+}
+function sel_navbar(sel_Id){
+ bootstrap_tabPillsNav_trigger({ "navbar-home":{ "contents":["navbar-home-content"],"functions":function(){ } },
+  "navbar-page1":{ "contents":["navbar-page1-content"],"functions":function(){ } },
+  "navbar-page2":{ "contents":["navbar-page2-content"],"functions":function(){ } },
+  "navbar-page3":{ "contents":["navbar-page3-content"],"functions":function(){ } }},'navbar', sel_Id,ALLOW_UPTO_INDEX);
+}
+$(document).ready(function(){
+ document.getElementById("navbar-allowUptoIndex").value=4;
+ sel_navbar('navbar-home');
+});
+</script>
+<div class="row">
+ <div class="col-sm-3">
+  <div class="form-group">
+     <label>Allow upto Index</label>
+     <div class="input-group">
+       <select id="navbar-allowUptoIndex" class="form-control">
+	     <option value="1">1</option>
+		 <option value="2">2</option>
+		 <option value="3">3</option>
+		 <option value="4">4</option>
+	   </select>
+	   <span class="input-group-addon" onclick="javascript:allow_upto_index();"><b>Allow</b></span>
+     </div><!-- input-group -->
+   </div><!-- form-group -->
+ </div><!-- col-sm-6 -->
+</div><!-- row -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+	<div class="navbar-header">
+	  <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+	<ul class="nav navbar-nav">
+	  <li id="navbar-home" class="active" onclick="javascript:sel_navbar(this.id);"><a href="#"><b>Home</b></a></li>
+	  <li id="navbar-page1" onclick="javascript:sel_navbar(this.id);"><a href="#"><b>Page 1</b></a></li>
+	  <li id="navbar-page2" onclick="javascript:sel_navbar(this.id);"><a href="#"><b>Page 2</b></a></li>
+	  <li id="navbar-page3" onclick="javascript:sel_navbar(this.id);"><a href="#"><b>Page 3</b></a></li>
+	</ul>
+  </div>
+</nav>
+<div>
+  <div id="navbar1-home-content" class="hide-block">navbar-home-content</div>
+  <div id="navbar1-page1-content" class="hide-block">navbar-page1-content</div>
+  <div id="navbar1-page2-content" class="hide-block">navbar-page2-content</div>
+  <div id="navbar1-page3-content" class="hide-block">navbar-page3-content</div>
+</div>

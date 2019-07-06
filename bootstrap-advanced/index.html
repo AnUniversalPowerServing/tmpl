@@ -4,17 +4,24 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   <script src="bootstrap-advanced.js"></script>
 <style>
 .mtop15p { margin-top:15px; }
 .hide-block { display:none; }
+.bg-grey { background-color:#f5f5f5; }
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
- $("#bootstrap-advanced-inputvalidations").load("templates/bootstrap-advanced-inputvalidations.html");
+ $("#bootstrap-advanced-example1-inputvalidations").load("templates/bootstrap-advanced-example1-inputvalidations.html");
+ $("#bootstrap-advanced-example2-navbar").load("templates/bootstrap-advanced-example2-navbar.html");
+ $("#bootstrap-advanced-example3-pills").load("templates/bootstrap-advanced-example3-pills.html");
+ $("#bootstrap-advanced-example4-tabs").load("templates/bootstrap-advanced-example4-tabs.html");
+ $("#bootstrap-advanced-example5-switch").load("templates/bootstrap-advanced-example5-switch.html");
 });
 </script>
 </head>
@@ -24,82 +31,73 @@ $(document).ready(function(){
   <div class="row">
     <div class="col-sm-4">
 	  <!-- bootstrap-advanced-inputvalidations ::: Start -->
-	  <div id="bootstrap-advanced-inputvalidations"></div>
+	    <!-- Example#1 ::: Start -->
+		 <div class="list-group">
+		   <div class="list-group-item bg-grey"><b>Input Validations</b></div>
+		   <div class="list-group-item">
+	        <div id="bootstrap-advanced-example1-inputvalidations"></div>
+		   </div>
+		 </div>
+		<!-- Example#1 ::: End -->
 	  <!--  bootstrap-advanced-inputvalidations ::: End -->
-	  <!-- bootstrap-advanced-tabPillsNav ::: Start -->
 	  
-	  <!-- Example#1 ::: Start -->
-	  <script type="text/javascript">
-	    function sel_navbar1(sel_Id){
-		  bootstrap_tabPillsNav_trigger({ "navbar1-home":{ "contents":["navbar1-home-content"],"functions":function(){ } },
-			"navbar1-page1":{ "contents":["navbar1-page1-content"],"functions":function(){ } },
-            "navbar1-page2":{ "contents":["navbar1-page2-content"],"functions":function(){ } },
-			"navbar1-page3":{ "contents":["navbar1-page3-content"],"functions":function(){ } }},'navbar', sel_Id,-1);
-		}
-	  </script>
-	  <div align="center">
-	    <b>Navbar that Allows all the Tabs to click</b>
-	  </div>
-	  <nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<div class="navbar-header">
-			  <a class="navbar-brand" href="#">WebSiteName</a>
-			</div>
-			<ul class="nav navbar-nav">
-			  <li id="navbar1-home" class="active" onclick="javascript:sel_navbar1(this.id);"><a href="#">Home</a></li>
-			  <li id="navbar1-page1" onclick="javascript:sel_navbar1(this.id);"><a href="#">Page 1</a></li>
-			  <li id="navbar1-page2" onclick="javascript:sel_navbar1(this.id);"><a href="#">Page 2</a></li>
-			  <li id="navbar1-page3" onclick="javascript:sel_navbar1(this.id);"><a href="#">Page 3</a></li>
-			</ul>
-		  </div>
-	  </nav>
+	  <!-- bootstrap-advanced-switch ::: Start -->
+	    <div class="list-group">
+		   <div class="list-group-item bg-grey"><b>Activates only Switches</b></div>
+		   <div class="list-group-item">
+	        <div id="bootstrap-advanced-example5-switch"></div>
+		   </div>
+		</div>
+	  <!-- bootstrap-advanced-switch ::: End -->
+    </div><!-- col-sm-4 -->
+    <div class="col-sm-8">
+      <!-- bootstrap-advanced-tabPillsNav ::: Start -->
 	  <div>
-	    <div id="navbar1-home-content" class="hide-block">navbar-home-content</div>
-	    <div id="navbar1-page1-content" class="hide-block">navbar-page1-content</div>
-	    <div id="navbar1-page2-content" class="hide-block">navbar-page2-content</div>
-	    <div id="navbar1-page3-content" class="hide-block">navbar-page3-content</div>
+	     <!-- Example#2 ::: Start -->
+		 <div class="list-group">
+		   <div class="list-group-item bg-grey"><b>Navbar that Allows the Tabs to click</b></div>
+		   <div class="list-group-item">
+		      <div id="bootstrap-advanced-example2-navbar"></div>
+		   </div>
+		 </div>
+	     <!-- Example#2 ::: End -->
 	  </div>
-	  <!-- Example#1 ::: End -->
 	  
-	  <!-- Example#2 ::: Start -->
-	  <script type="text/javascript">
-	    function sel_navbar2(sel_Id){
-		  bootstrap_tabPillsNav_trigger({ "navbar2-home":{ "contents":["navbar2-home-content"],"functions":function(){ } },
-			"navbar2-page1":{ "contents":["navbar2-page1-content"],"functions":function(){ } },
-            "navbar2-page2":{ "contents":["navbar2-page2-content"],"functions":function(){ } },
-			"navbar2-page3":{ "contents":["navbar2-page3-content"],"functions":function(){ } }},'navbar', sel_Id,1);
-		}
-	  </script>
-	  <div align="center">
-	    <b>Navbar that Allows only first two Tabs to click</b>
-	  </div>
-	  <nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<div class="navbar-header">
-			  <a class="navbar-brand" href="#">WebSiteName</a>
-			</div>
-			<ul class="nav navbar-nav">
-			  <li id="navbar2-home" class="active" onclick="javascript:sel_navbar2(this.id);"><a href="#">Home</a></li>
-			  <li id="navbar2-page1" onclick="javascript:sel_navbar2(this.id);"><a href="#">Page 1</a></li>
-			  <li id="navbar2-page2" onclick="javascript:sel_navbar2(this.id);"><a href="#">Page 2</a></li>
-			  <li id="navbar2-page3" onclick="javascript:sel_navbar2(this.id);"><a href="#">Page 3</a></li>
-			</ul>
+	  <div class="row">
+	    <div class="col-sm-6">
+		
+		  <!-- Example#3 ::: Start -->
+		  <div class="list-group">
+		    <div class="list-group-item bg-grey"><b>Pills that Allows the Tabs to click</b></div>
+		    <div class="list-group-item">
+		      <div id="bootstrap-advanced-example3-pills"></div>
+		    </div>
 		  </div>
-	  </nav>
-	  <div>
-	    <div id="navbar2-home-content" class="hide-block">navbar-home-content</div>
-	    <div id="navbar2-page1-content" class="hide-block">navbar-page1-content</div>
-	    <div id="navbar2-page2-content" class="hide-block">navbar-page2-content</div>
-	    <div id="navbar2-page3-content" class="hide-block">navbar-page3-content</div>
-	  </div>
-	  <!-- Example#1 ::: End -->
-	  
+	      <!-- Example#3 ::: End -->
+		</div><!-- col-sm-6 -->
+		<div class="col-sm-6"> 
+		
+		  <!-- Example#4 ::: Start -->
+		  <div class="list-group">
+		    <div class="list-group-item bg-grey"><b>Tabs that Allows the Tabs to click</b></div>
+		    <div class="list-group-item">
+			  <div id="bootstrap-advanced-example4-tabs"></div>
+		    </div>
+		  </div>
+	      <!-- Example#4 ::: End -->
+		  
+		</div><!-- col-sm-6 -->
+	  </div><!-- row -->
 	  <!-- bootstrap-advanced-tabPillsNav ::: End -->
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+	</div><!-- col-sm-8 -->	 
+  </div><!-- row -->
+  
+	     
+		 
+		 
+		 
+		 
+	  
     </div>
   </div>
 </div>

@@ -1,0 +1,51 @@
+<script type="text/javascript">
+var ALLOW_UPTO_INDEX=-1;
+function allow_upto_index(){
+ ALLOW_UPTO_INDEX = $('#pills-allowUptoIndex').val() - 1;
+ sel_pills('pills-home');
+}
+function sel_pills(sel_Id){
+ bootstrap_tabPillsNav_trigger({ "pills-home":{ "contents":["pills-home-content"],"functions":function(){ } },
+  "pills-page1":{ "contents":["pills-page1-content"],"functions":function(){ } },
+  "pills-page2":{ "contents":["pills-page2-content"],"functions":function(){ } },
+  "pills-page3":{ "contents":["pills-page3-content"],"functions":function(){ } }},'pills', sel_Id,ALLOW_UPTO_INDEX);
+}
+$(document).ready(function(){
+ document.getElementById("pills-allowUptoIndex").value=4;
+ sel_pills('pills-home');
+});
+</script>
+<div class="row">
+ <div class="col-sm-6">
+  <div class="form-group">
+     <label>Allow upto Index</label>
+     <div class="input-group">
+       <select id="pills-allowUptoIndex" class="form-control">
+	     <option value="1">1</option>
+		 <option value="2">2</option>
+		 <option value="3">3</option>
+		 <option value="4">4</option>
+	   </select>
+	   <span class="input-group-addon" onclick="javascript:allow_upto_index();"><b>Allow</b></span>
+     </div><!-- input-group -->
+   </div><!-- form-group -->
+ </div><!-- col-sm-6 -->
+</div><!-- row -->
+<div class="row">
+ <div class="col-sm-5">
+	<ul class="nav nav-pills nav-stacked">
+	  <li id="pills-home" class="active" onclick="javascript:sel_pills(this.id);"><a href="#"><b>Home</b></a></li>
+	  <li id="pills-page1" onclick="javascript:sel_pills(this.id);"><a href="#"><b>Page 1</b></a></li>
+	  <li id="pills-page2" onclick="javascript:sel_pills(this.id);"><a href="#"><b>Page 2</b></a></li>
+	  <li id="pills-page3" onclick="javascript:sel_pills(this.id);"><a href="#"><b>Page 3</b></a></li>
+	</ul>
+ </div><!-- col-sm-6 -->
+ <div class="col-sm-6">
+   <div class="mtop15p">
+     <div id="pills-home-content" class="hide-block">pills-home-content</div>
+     <div id="pills-page1-content" class="hide-block">pills-page1-content</div>
+     <div id="pills-page2-content" class="hide-block">pills-page2-content</div>
+     <div id="pills-page3-content" class="hide-block">pills-page3-content</div>
+   </div>
+ </div><!-- col-sm-6 -->
+</div><!-- row --> 

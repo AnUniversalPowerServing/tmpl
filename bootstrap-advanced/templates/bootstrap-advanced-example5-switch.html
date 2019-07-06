@@ -1,0 +1,19 @@
+<script type="text/javascript">
+$(document).ready(function(){
+ bootstrap_switch_loadup();
+ bootstrap_switch_radioMode('ranking',{ "First":function(){ console.log('First'); },
+										"Second":function(){ console.log('Second'); },
+										"Third":function(){ console.log('Third'); } });
+});
+</script>
+<div>
+ <label class="checkbox-inline">
+  <input id="first" name="ranking" type="checkbox" value="First" data-toggle="toggle" > First
+ </label>
+ <label class="checkbox-inline">
+  <input id="second" name="ranking" type="checkbox" value="Second" data-toggle="toggle"> Second
+ </label>
+ <label class="checkbox-inline">
+  <input id="third" name="ranking" type="checkbox" value="Third" data-toggle="toggle"> Third
+ </label>
+</div>

@@ -1,0 +1,49 @@
+<script type="text/javascript">
+var ALLOW_UPTO_INDEX=-1;
+function allow_upto_index(){
+ ALLOW_UPTO_INDEX = $('#tabs-allowUptoIndex').val() - 1;
+ sel_tabs('tabs-home');
+}
+function sel_tabs(sel_Id){
+ bootstrap_tabPillsNav_trigger({ "tabs-home":{ "contents":["tabs-home-content"],"functions":function(){ } },
+  "tabs-page1":{ "contents":["tabs-page1-content"],"functions":function(){ } },
+  "tabs-page2":{ "contents":["tabs-page2-content"],"functions":function(){ } },
+  "tabs-page3":{ "contents":["tabs-page3-content"],"functions":function(){ } }},'tabs', sel_Id,ALLOW_UPTO_INDEX);
+}
+$(document).ready(function(){
+ document.getElementById("tabs-allowUptoIndex").value=4;
+ sel_tabs('tabs-home');
+});
+</script>
+<div class="row">
+ <div class="col-sm-6">
+  <div class="form-group">
+     <label>Allow upto Index</label>
+     <div class="input-group">
+       <select id="tabs-allowUptoIndex" class="form-control">
+	     <option value="1">1</option>
+		 <option value="2">2</option>
+		 <option value="3">3</option>
+		 <option value="4">4</option>
+	   </select>
+	   <span class="input-group-addon" onclick="javascript:allow_upto_index();"><b>Allow</b></span>
+     </div><!-- input-group -->
+   </div><!-- form-group -->
+ </div><!-- col-sm-6 -->
+</div><!-- row -->
+
+	<ul class="nav nav-tabs">
+	  <li id="tabs-home" class="active" onclick="javascript:sel_tabs(this.id);"><a href="#"><b>Home</b></a></li>
+	  <li id="tabs-page1" onclick="javascript:sel_tabs(this.id);"><a href="#"><b>Page 1</b></a></li>
+	  <li id="tabs-page2" onclick="javascript:sel_tabs(this.id);"><a href="#"><b>Page 2</b></a></li>
+	  <li id="tabs-page3" onclick="javascript:sel_tabs(this.id);"><a href="#"><b>Page 3</b></a></li>
+	</ul>
+ 
+<div class="list-group">
+ <div class="list-group-item">
+  <div id="tabs-home-content" class="hide-block">tabs-home-content</div>
+  <div id="tabs-page1-content" class="hide-block">tabs-page1-content</div>
+  <div id="tabs-page2-content" class="hide-block">tabs-page2-content</div>
+  <div id="tabs-page3-content" class="hide-block">tabs-page3-content</div>
+ </div><!-- list-group-item -->
+</div><!-- list-group -->
