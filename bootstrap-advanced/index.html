@@ -10,68 +10,91 @@
   <script src="bootstrap-advanced.js"></script>
 <style>
 .mtop15p { margin-top:15px; }
+.hide-block { display:none; }
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+ $("#bootstrap-advanced-inputvalidations").load("templates/bootstrap-advanced-inputvalidations.html");
+});
+</script>
 </head>
 <body>
 
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4">
-	   <!-- bootstrap-advanced-inputvalidations ::: Start -->
-	   <script type="text/javascript">
-		function success(){
-		 bootstrap_formField_trigger('success',["field1","field2"]);
-		 bootstrap_formField_trigger('success','field3');
-		}
-		function warning(){
-		 bootstrap_formField_trigger('warning',["field1","field2"]);
-		 bootstrap_formField_trigger('warning','field3');
-		}
-		function error(){
-		 bootstrap_formField_trigger('error',["field1","field2"]);
-		 bootstrap_formField_trigger('error','field3');
-		}
-		function remove(){
-		 bootstrap_formField_trigger('remove',["field1","field2"]);
-		 bootstrap_formField_trigger('remove','field3');
+	  <!-- bootstrap-advanced-inputvalidations ::: Start -->
+	  <div id="bootstrap-advanced-inputvalidations"></div>
+	  <!--  bootstrap-advanced-inputvalidations ::: End -->
+	  <!-- bootstrap-advanced-tabPillsNav ::: Start -->
+	  
+	  <!-- Example#1 ::: Start -->
+	  <script type="text/javascript">
+	    function sel_navbar1(sel_Id){
+		  bootstrap_tabPillsNav_trigger({ "navbar1-home":{ "contents":["navbar1-home-content"],"functions":function(){ } },
+			"navbar1-page1":{ "contents":["navbar1-page1-content"],"functions":function(){ } },
+            "navbar1-page2":{ "contents":["navbar1-page2-content"],"functions":function(){ } },
+			"navbar1-page3":{ "contents":["navbar1-page3-content"],"functions":function(){ } }},'navbar', sel_Id,-1);
 		}
 	  </script>
-	  <div class="form-group mtop15p">
-        <div class="btn-group">
-	      <button class="btn btn-default" onclick="javascript:success();"><b>Success</b></button>
-	      <button class="btn btn-default" onclick="javascript:warning();"><b>Warning</b></button>
-	      <button class="btn btn-default" onclick="javascript:error();"><b>Error</b></button>
-	      <button class="btn btn-default" onclick="javascript:remove();"><b>Remove</b></button>
-	    </div>
+	  <div align="center">
+	    <b>Navbar that Allows all the Tabs to click</b>
 	  </div>
-	  
-	  <!-- Field#1 -->
-	  <div class="form-group mtop15p">
-	    <label>Field</label>
-	    <input type="text" class="form-control" id="field1" placeholder="Enter your Field"/>
+	  <nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="#">WebSiteName</a>
+			</div>
+			<ul class="nav navbar-nav">
+			  <li id="navbar1-home" class="active" onclick="javascript:sel_navbar1(this.id);"><a href="#">Home</a></li>
+			  <li id="navbar1-page1" onclick="javascript:sel_navbar1(this.id);"><a href="#">Page 1</a></li>
+			  <li id="navbar1-page2" onclick="javascript:sel_navbar1(this.id);"><a href="#">Page 2</a></li>
+			  <li id="navbar1-page3" onclick="javascript:sel_navbar1(this.id);"><a href="#">Page 3</a></li>
+			</ul>
+		  </div>
+	  </nav>
+	  <div>
+	    <div id="navbar1-home-content" class="hide-block">navbar-home-content</div>
+	    <div id="navbar1-page1-content" class="hide-block">navbar-page1-content</div>
+	    <div id="navbar1-page2-content" class="hide-block">navbar-page2-content</div>
+	    <div id="navbar1-page3-content" class="hide-block">navbar-page3-content</div>
 	  </div>
+	  <!-- Example#1 ::: End -->
 	  
-	  <!-- Field#2 -->
-	  <div class="form-group mtop15p">
-	    <label>Field</label>
-	    <div class="input-group">
-		  <input type="text" class="form-control" id="field2" placeholder="Enter your Field"/>
-		  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        </div><!-- input-group -->
-	  </div><!-- form-group -->
+	  <!-- Example#2 ::: Start -->
+	  <script type="text/javascript">
+	    function sel_navbar2(sel_Id){
+		  bootstrap_tabPillsNav_trigger({ "navbar2-home":{ "contents":["navbar2-home-content"],"functions":function(){ } },
+			"navbar2-page1":{ "contents":["navbar2-page1-content"],"functions":function(){ } },
+            "navbar2-page2":{ "contents":["navbar2-page2-content"],"functions":function(){ } },
+			"navbar2-page3":{ "contents":["navbar2-page3-content"],"functions":function(){ } }},'navbar', sel_Id,1);
+		}
+	  </script>
+	  <div align="center">
+	    <b>Navbar that Allows only first two Tabs to click</b>
+	  </div>
+	  <nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="#">WebSiteName</a>
+			</div>
+			<ul class="nav navbar-nav">
+			  <li id="navbar2-home" class="active" onclick="javascript:sel_navbar2(this.id);"><a href="#">Home</a></li>
+			  <li id="navbar2-page1" onclick="javascript:sel_navbar2(this.id);"><a href="#">Page 1</a></li>
+			  <li id="navbar2-page2" onclick="javascript:sel_navbar2(this.id);"><a href="#">Page 2</a></li>
+			  <li id="navbar2-page3" onclick="javascript:sel_navbar2(this.id);"><a href="#">Page 3</a></li>
+			</ul>
+		  </div>
+	  </nav>
+	  <div>
+	    <div id="navbar2-home-content" class="hide-block">navbar-home-content</div>
+	    <div id="navbar2-page1-content" class="hide-block">navbar-page1-content</div>
+	    <div id="navbar2-page2-content" class="hide-block">navbar-page2-content</div>
+	    <div id="navbar2-page3-content" class="hide-block">navbar-page3-content</div>
+	  </div>
+	  <!-- Example#1 ::: End -->
 	  
-	  <!-- Field#3 -->
-	  <div class="form-group mtop15p">
-	    <label>Field</label>
-		<div class="input-group">
-		  <input type="text" id="field3" class="form-control" placeholder="Search">
-		  <div class="input-group-btn">
-			<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-          </div>
-		</div><!-- input-group -->
-	  </div><!-- form-group -->
-	  
-	  <!--  bootstrap-advanced-inputvalidations ::: End -->
+	  <!-- bootstrap-advanced-tabPillsNav ::: End -->
     </div>
     <div class="col-sm-4">
       <h3>Column 3</h3>        

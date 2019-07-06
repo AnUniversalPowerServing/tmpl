@@ -169,7 +169,7 @@ function bootstrap_tabPillsNav_trigger(tabPillsNavbarContentMapper,mode, sel_Id,
   var contents = tabPillsNavbarContentMapper[sel_Id]["contents"];
   if(contents.length>0){
    contents = contents.map(i=>'#'+i).toString();
-   $(contents).parent('div'),chilldren('div').attr('class','hide-block');
+   $(contents).parent('div').children('div').attr('class','hide-block');
    $(contents).removeAttr('class');
   }
   tabPillsNavbarContentMapper[sel_Id]["functions"]();
