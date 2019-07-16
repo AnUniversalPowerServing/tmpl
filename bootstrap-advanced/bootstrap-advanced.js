@@ -1,3 +1,7 @@
+/* Project Constants ::: Start */
+var JSONURL_MESSAGES_SUCCESS = "";
+var JSONURL_MESSAGES_WARNING = "";
+/* Project Constants  ::: End */
 /*****************************************************************************************************************************/
 /************************************ bootstrap-advanced-inputvalidations ****************************************************/
 /*****************************************************************************************************************************/
@@ -215,4 +219,89 @@ function bootstrap_switch_radioMode(name,switchMapper){
    if($(this).is(":checked")){ $(name_data).not(this).each(function(){ $(this).bootstrapToggle("off"); });
                                if(switchMapper[this.value]!==undefined){ switchMapper[this.value](); } }
  });
+}
+
+/*****************************************************************************************************************************/
+/************************************ bootstrap-advanced-alerts **************************************************************/
+/*****************************************************************************************************************************/
+function bootstrap_display_warning(div_Id,warning_Id){
+js_ajax("GET",PROJECT_URL+'backend/config/warning_messages.json',{},function(response){
+var content='<div class="alert alert-warning alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+    content+='<strong>Warning!</strong> '+response[warning_Id][USR_LANG];
+    content+='</div>';
+ document.getElementById(div_Id).innerHTML=content;
+});
+}
+function alert_display_warningByContent(data){
+var content='<div class="modal-dialog">';
+	content+='<div class="modal-content">';
+    content+='<div class="modal-body" style="padding:0px;">';
+    content+='<div class="alert alert-warning alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>';
+    content+=data;
+    content+='</div>';
+    content+='</div>';
+    content+='</div>';
+    content+='</div>';
+var modalDivision = document.createElement("div"); 
+    modalDivision.setAttribute("id", "alertWarningModal");
+	modalDivision.setAttribute("class", "modal fade");
+	modalDivision.setAttribute("role", "dialog");
+ document.body.appendChild(modalDivision);  
+ document.getElementById("alertWarningModal").innerHTML=content;
+ $('#alertWarningModal').modal();
+}
+function alert_display_warning(warning_Id){
+js_ajax("GET",PROJECT_URL+'backend/config/warning_messages.json',{},function(response){
+var content='<div class="modal-dialog">';
+	content+='<div class="modal-content">';
+    content+='<div class="modal-body" style="padding:0px;">';
+    content+='<div class="alert alert-warning alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>';
+    content+='<strong>Warning!</strong> '+response[warning_Id][USR_LANG];
+    content+='</div>';
+    content+='</div>';
+    content+='</div>';
+    content+='</div>';
+var modalDivision = document.createElement("div"); 
+    modalDivision.setAttribute("id", "alertWarningModal");
+	modalDivision.setAttribute("class", "modal fade");
+	modalDivision.setAttribute("role", "dialog");
+ document.body.appendChild(modalDivision);  
+ document.getElementById("alertWarningModal").innerHTML=content;
+ $('#alertWarningModal').modal();
+});
+}
+function div_display_success(div_Id,success_Id){
+js_ajax("GET",PROJECT_URL+'backend/config/success_messages.json',{},function(response){
+console.log(response);
+var content='<div class="alert alert-success alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+    content+='<strong>Success!</strong> '+response[success_Id][USR_LANG];
+    content+='</div>';
+ document.getElementById(div_Id).innerHTML=content;
+});
+}
+function alert_display_success(success_Id,success_url){
+js_ajax("GET",PROJECT_URL+'backend/config/success_messages.json',{},function(response){
+var content='<div class="modal-dialog">';
+	content+='<div class="modal-content">';
+    content+='<div class="modal-body" style="padding:0px;">';
+    content+='<div class="alert alert-success alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" onclick="javascript:urlTransfer(\''+success_url+'\');" class="close" data-dismiss="modal" ';
+	content+='aria-label="close">&times;</a>';
+    content+='<strong>Success!</strong> '+response[success_Id][USR_LANG];
+    content+='</div>';
+    content+='</div>';
+    content+='</div>';
+    content+='</div>';
+var modalDivision = document.createElement("div"); 
+    modalDivision.setAttribute("id", "alertSuccessModal");
+	modalDivision.setAttribute("class", "modal fade");
+	modalDivision.setAttribute("role", "dialog");
+ document.body.appendChild(modalDivision);  
+ document.getElementById("alertSuccessModal").innerHTML=content;
+ $('#alertSuccessModal').modal({backdrop: "static"});
+});
 }
