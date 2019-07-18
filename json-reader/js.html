@@ -1,0 +1,36 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+$.ajax({method:'GET',async:false, url:'sample.json',data:{},success:function(response){ 
+console.log(response);
+for(var key1 in response) {
+value1=response[key1];
+console.log("Key: " + key1 + " value: " +value1);
+if(typeof(value1)==='object'){
+for(var key2 in value1) {
+value2=value1[key2];
+console.log("Key: " + key2 + " value: " +value2);
+}
+}
+
+}
+}});
+*/
+
+var jsonData ={"D01|SD01":{"domain_Id":"D01","subdomain_Id":"SD01"},
+			   "D02|SD02":{"domain_Id":"D01","subdomain_Id":"SD02"},
+			   "D03|SD03":{"domain_Id":"D01","subdomain_Id":"SD03"},
+			   "D04|SD04":{"domain_Id":"D01","subdomain_Id":"SD04"},
+			   "D05|SD05":{"domain_Id":"D01","subdomain_Id":"SD05"},
+			   "D06|SD06":{"domain_Id":"D01","subdomain_Id":"SD06"}
+			  };
+var arry = Object.keys(jsonData);
+delete jsonData["D04|SD04"];
+document.write(JSON.stringify(jsonData));
+
+/*
+for(var subscription_Id in jsonData) {
+subscriptionObject=jsonData[subscription_Id];
+console.log("Select SD04: "+subscriptionObject);
+}*/
+</script>
