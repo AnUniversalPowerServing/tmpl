@@ -1,0 +1,18 @@
+#
+RewriteEngine on
+# RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt)$ [NC]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+#RewriteRule ^(.*)$ apps/1.0/$1 [L]
+#RewriteCond %{REQUEST_URI} !(.*)apps/1.0 
+#RewriteCond %{REQUEST_URI} !^/apps/1.0/mw/
+#RewriteRule ^apps/(.*)$ apps/1.0/$1 [L]
+#RewriteRule ^mw/(.*)$ mw/$1 [L]
+
+
+#ErrorDocument 404 http://localhost/mylocalhook/
+
+DirectoryIndex default.php
+php_value auto_prepend_file prepend.php
+php_value auto_append_file append.php
