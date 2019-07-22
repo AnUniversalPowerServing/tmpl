@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.9.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>anups-springboot-api</groupId>
+	<artifactId>anups-springboot-dat-en</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>anups-springboot-dat-en</name>
+	<description>dat-en - Data Engine</description>
+    <packaging>jar</packaging>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+	    <!--  anups dependencies ::: Start -->
+	    
+	    <dependency>
+			<groupId>anups-springboot-api</groupId>
+	        <artifactId>anups-springboot-utility</artifactId>
+	        <version>0.0.1-SNAPSHOT</version>
+	        <scope>system</scope>
+	        <systemPath>C:\wamp\www\tmpl\sb-c\anups-springboot-api\anups-springboot-utility\target\anups-springboot-utility-0.0.1-SNAPSHOT.jar</systemPath>
+	        <type>jar</type>
+  			<optional>true</optional>
+		</dependency>
+		
+	    <!-- anups dependencies ::: End  -->
+	    
+	     <!--  anups supporting dependencies ::: Start -->
+	    <dependency>
+		    <groupId>org.reflections</groupId>
+		    <artifactId>reflections</artifactId>
+		    <version>0.9.10</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.5</version>
+		</dependency>
+	    <!--  anups supporting dependencies ::: End -->
+	    
+	    
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+				<!-- get all project dependencies -->
+				    <descriptorRefs>
+						<descriptorRef>project</descriptorRef>
+					</descriptorRefs>
+					<!-- MainClass in mainfest make a executable jar -->
+				    <archive>
+					  <manifest>
+						<mainClass>anups.dat.en.core.app.ApplicationStart</mainClass>
+					  </manifest>
+					</archive>
+
+				</configuration>
+				<executions>
+				  <execution>
+					<id>make-assembly</id> <!-- bind to the packaging phase -->
+					<phase>package</phase> 
+					<goals>
+						<goal>single</goal>
+					</goals>
+				  </execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
