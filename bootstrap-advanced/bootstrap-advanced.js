@@ -142,7 +142,7 @@ function bootstrap_formField_hglRemove(field_Id){
 /************************************ bootstrap-advanced-tabPillsNav *********************************************************/
 /*****************************************************************************************************************************/
 
-function bootstrap_tabPillsNav_trigger(tabPillsNavbarContentMapper,mode, sel_Id,stepAllow){
+function bootstrap_menu_trigger(tabPillsNavbarContentMapper,mode, sel_Id,stepAllow){
 /* ====================================
  * FUNCTION DESCRIPTION:
  * ====================================
@@ -160,14 +160,14 @@ function bootstrap_tabPillsNav_trigger(tabPillsNavbarContentMapper,mode, sel_Id,
  * _____________________________________________________________________________________________
  * || JS TRIGGER CODE:                                                                        ||                                                                             ||  
  * ---------------------------------------------------------------------------------------------
- * || bootstrap_tabPillsNav_trigger( { "navbar1":{ "contents":[],"functions":function(){ } }, ||
+ * || bootstrap_menu_trigger( { "navbar1":{ "contents":[],"functions":function(){ } }, ||
  * ||								   "navbar2":{ "contents":[],"functions":function(){ } }, ||
  * ||								   "navbar3":{ "contents":[],"functions":function(){ } }  ||
  * ||								 }, 'navbar','navbar2',2);                                ||                                                                          ||
  * ---------------------------------------------------------------------------------------------
  */
- var sel_mode = { "tabs" :"nav nav-tabs", "pills": "nav nav-pills","navbar":"nav navbar-nav" }
- if(($('ul[class="'+sel_mode[mode]+'"]>li#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
+ var sel_mode = { "list-inline":"list-inline", "tabs" :"nav nav-tabs", "pills": "nav nav-pills","navbar":"nav navbar-nav" };
+if(($('ul[class="'+sel_mode[mode]+'"]>li#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
   $('#'+sel_Id).parent('ul').children('li').removeAttr('class');
   $('#'+sel_Id).attr('class','active');
   var contents = tabPillsNavbarContentMapper[sel_Id]["contents"];
