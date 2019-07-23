@@ -142,7 +142,8 @@ function bootstrap_formField_hglRemove(field_Id){
 /************************************ bootstrap-advanced-tabPillsNav *********************************************************/
 /*****************************************************************************************************************************/
 
-function bootstrap_menu_trigger(tabPillsNavbarContentMapper,mode, sel_Id,stepAllow){
+
+function bootstrap_menu_trigger(menuContentMapper,mode, sel_Id,stepAllow){
 /* ====================================
  * FUNCTION DESCRIPTION:
  * ====================================
@@ -167,16 +168,20 @@ function bootstrap_menu_trigger(tabPillsNavbarContentMapper,mode, sel_Id,stepAll
  * ---------------------------------------------------------------------------------------------
  */
  var sel_mode = { "list-inline":"list-inline", "tabs" :"nav nav-tabs", "pills": "nav nav-pills","navbar":"nav navbar-nav" };
-if(($('ul[class="'+sel_mode[mode]+'"]>li#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
+ if(($('ul[class="'+sel_mode[mode]+'"]>li#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
   $('#'+sel_Id).parent('ul').children('li').removeAttr('class');
   $('#'+sel_Id).attr('class','active');
-  var contents = tabPillsNavbarContentMapper[sel_Id]["contents"];
-  if(contents.length>0){
-   contents = contents.map(i=>'#'+i).toString();
-   $(contents).parent('div').children('div').attr('class','hide-block');
-   $(contents).removeAttr('class');
+  var sel_contents = menuContentMapper[sel_Id]["contents"];
+  for(var menu in menuContentMapper){
+  var all_contents = menuContentMapper[menu].contents.map(i=>'#'+i).toString();
+  if(all_contents.length>0){
+  $(all_contents).attr('class','hide-block');
   }
-  tabPillsNavbarContentMapper[sel_Id]["functions"]();
+  }
+  if(sel_contents.length>0){
+  $('#'+sel_contents).removeAttr('class');
+  }
+  menuContentMapper[sel_Id]["functions"]();
  }
 }
 
