@@ -142,6 +142,10 @@ function bootstrap_formField_hglRemove(field_Id){
 /************************************ bootstrap-advanced-tabPillsNav *********************************************************/
 /*****************************************************************************************************************************/
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89e2d2de3e4f18dcbf0ee6397e82e38119e40498
 function bootstrap_menu_trigger(menuContentMapper,mode, sel_Id,stepAllow){
 /* ====================================
  * FUNCTION DESCRIPTION:
@@ -175,8 +179,13 @@ function bootstrap_menu_trigger(menuContentMapper,mode, sel_Id,stepAllow){
   var all_contents = menuContentMapper[menu].contents.map(i=>'#'+i).toString();
   if(all_contents.length>0){
   $(all_contents).attr('class','hide-block');
+<<<<<<< HEAD
   }
   }
+=======
+  }
+  }
+>>>>>>> 89e2d2de3e4f18dcbf0ee6397e82e38119e40498
   if(sel_contents.length>0){
   $('#'+sel_contents).removeAttr('class');
   }
