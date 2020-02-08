@@ -1,0 +1,59 @@
+<style>
+/* Page Related CSS ::: Start */
+.step-badges>div>span.badge { font-size:30px;background-color:purple;color:#fff; }
+.step-badges>div>span.badge.active { font-size:30px;background-color:blue;color:#fff5c4; }
+/* Page Related CSS ::: End */
+</style>
+<script type="text/javascript">
+var ALLOW_UPTO_INDEX=-1;
+function allow_upto_index(){
+ // ALLOW_UPTO_INDEX = $('#badges-allowUptoIndex').val() - 1;
+ sel_pills('badges-home');
+}
+function sel_pills(sel_Id){
+ bootstrap_menu_trigger({ 
+  "badges-page1":{ "contents":["badges-page1-content"],"functions":function(){ } },
+  "badges-page2":{ "contents":["badges-page2-content"],"functions":function(){ } },
+  "badges-page3":{ "contents":["badges-page3-content"],"functions":function(){ } }},'badges', sel_Id,ALLOW_UPTO_INDEX);
+}
+$(document).ready(function(){
+ document.getElementById("badges-allowUptoIndex").value=4;
+ sel_pills('badges-home');
+});
+</script>
+<div class="row">
+ <div class="col-sm-6">
+  <div class="form-group">
+     <label>Allow upto Index</label>
+     <div class="input-group">
+       <select id="badges-allowUptoIndex" class="form-control">
+	     <option value="1">1</option>
+		 <option value="2">2</option>
+		 <option value="3">3</option>
+		 <option value="4">4</option>
+	   </select>
+	   <span class="input-group-addon" onclick="javascript:allow_upto_index();"><b>Allow</b></span>
+     </div><!-- input-group -->
+   </div><!-- form-group -->
+ </div><!-- col-sm-6 -->
+</div><!-- row -->
+ <div class="row step-badges">
+	<div align="center" class="col-xs-4">
+		<span id="badges-page1" class="badge active" data-toggle="tab" href="#auth-reg-genInfo">1</span>
+	</div><!--/.col-xs-4 -->
+	<div align="center" class="col-xs-4">
+		<span id="badges-page2" class="badge" data-toggle="tab" href="#auth-reg-setPassword">2</span>
+	</div><!--/.col-xs-4 -->
+	<div align="center" class="col-xs-4">
+		<span id="badges-page3" class="badge" data-toggle="tab" href="#auth-reg-securityQ">3</span>
+	</div><!--/.col-xs-4 -->
+ </div><!--/.row -->
+ <div class="col-sm-12">
+ <div class="col-sm-6">
+   <div class="mtop15p">
+     <div id="badges-page1-content" class="hide-block">badges-page1-content</div>
+     <div id="badges-page2-content" class="hide-block">badges-page2-content</div>
+     <div id="badges-page3-content" class="hide-block">badges-page3-content</div>
+   </div>
+ </div><!-- col-sm-6 -->
+</div><!-- row --> 
