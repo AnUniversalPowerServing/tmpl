@@ -8,17 +8,17 @@
 var ALLOW_UPTO_INDEX=-1;
 function allow_upto_index(){
  // ALLOW_UPTO_INDEX = $('#badges-allowUptoIndex').val() - 1;
- sel_pills('badges-home');
+ sel_pills('badges-page1');
 }
 function sel_pills(sel_Id){
  bootstrap_menu_trigger({ 
-  "badges-page1":{ "contents":["badges-page1-content"],"functions":function(){ } },
+  "badges-page1":{ "contents":["badges-page1-content","badges-page2-content"],"functions":function(){ } },
   "badges-page2":{ "contents":["badges-page2-content"],"functions":function(){ } },
   "badges-page3":{ "contents":["badges-page3-content"],"functions":function(){ } }},'badges', sel_Id,ALLOW_UPTO_INDEX);
 }
 $(document).ready(function(){
  document.getElementById("badges-allowUptoIndex").value=4;
- sel_pills('badges-home');
+ // sel_pills('badges-page1');
 });
 </script>
 <div class="row">
@@ -39,13 +39,16 @@ $(document).ready(function(){
 </div><!-- row -->
  <div class="row step-badges">
 	<div align="center" class="col-xs-4">
-		<span id="badges-page1" class="badge active" data-toggle="tab" href="#auth-reg-genInfo">1</span>
+		<span id="badges-page1" class="badge active" data-toggle="tab"
+		onclick="javascript:sel_pills(this.id);" href="#auth-reg-genInfo">1</span>
 	</div><!--/.col-xs-4 -->
 	<div align="center" class="col-xs-4">
-		<span id="badges-page2" class="badge" data-toggle="tab" href="#auth-reg-setPassword">2</span>
+		<span id="badges-page2" class="badge" data-toggle="tab" 
+		onclick="javascript:sel_pills(this.id);" href="#auth-reg-setPassword">2</span>
 	</div><!--/.col-xs-4 -->
 	<div align="center" class="col-xs-4">
-		<span id="badges-page3" class="badge" data-toggle="tab" href="#auth-reg-securityQ">3</span>
+		<span id="badges-page3" class="badge" data-toggle="tab" 
+		onclick="javascript:sel_pills(this.id);" href="#auth-reg-securityQ">3</span>
 	</div><!--/.col-xs-4 -->
  </div><!--/.row -->
  <div class="col-sm-12">

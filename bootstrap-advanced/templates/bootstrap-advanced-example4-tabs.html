@@ -5,7 +5,7 @@ function allow_upto_index(){
  sel_tabs('tabs-home');
 }
 function sel_tabs(sel_Id){
- bootstrap_tabPillsNav_trigger({ "tabs-home":{ "contents":["tabs-home-content"],"functions":function(){ } },
+ bootstrap_menu_trigger({ "tabs-home":{ "contents":["tabs-home-content"],"functions":function(){ } },
   "tabs-page1":{ "contents":["tabs-page1-content"],"functions":function(){ } },
   "tabs-page2":{ "contents":["tabs-page2-content"],"functions":function(){ } },
   "tabs-page3":{ "contents":["tabs-page3-content"],"functions":function(){ } }},'tabs', sel_Id,ALLOW_UPTO_INDEX);

@@ -141,6 +141,18 @@ function bootstrap_formField_hglRemove(field_Id){
 /*****************************************************************************************************************************/
 /************************************ bootstrap-advanced-tabPillsNav *********************************************************/
 /*****************************************************************************************************************************/
+function bootstrap_menu_contentTrigger(menuContentMapper, sel_Id){
+ if(menuContentMapper[sel_Id]!==undefined){
+   var allContents = menuContentMapper[sel_Id].contents;
+   for(var menu in menuContentMapper){
+    var all_contents = allContents.map(i=>'#'+i).toString();
+    if(menu===sel_Id){ $(all_contents).removeAttr('class'); } 
+	else { if(all_contents.length>0){ $(all_contents).attr('class','hide-block'); } } 
+	menuContentMapper[sel_Id]["functions"]();
+  }
+ }
+}
+
 function bootstrap_menu_trigger(menuContentMapper,mode, sel_Id,stepAllow){
 /* ====================================
  * FUNCTION DESCRIPTION:
@@ -167,21 +179,19 @@ function bootstrap_menu_trigger(menuContentMapper,mode, sel_Id,stepAllow){
  */
  var sel_mode = { "list-inline":"list-inline", "tabs" :"nav nav-tabs", "pills": "nav nav-pills", "navbar":"nav navbar-nav",
 "badges":"step-badges" };
+ console.log(mode+" "+sel_Id);
  if(mode==='badges'){
-	$('#'+sel_Id).parent('div.step-badges').children('div>span').remove('class','active');
+ 
+	if(($('div[class="'+sel_mode[mode]+'"]>div>span#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
+		$('#'+sel_Id).parent('div').parent('div.step-badges').children('div').children('span').removeClass('active');
+		$('#'+sel_Id).attr('class','badge active');
+		bootstrap_menu_contentTrigger(menuContentMapper, sel_Id);
+	}
  } else {
 	if(($('ul[class="'+sel_mode[mode]+'"]>li#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
 		$('#'+sel_Id).parent('ul').children('li').removeAttr('class');
 		$('#'+sel_Id).attr('class','active');
-		var sel_contents = menuContentMapper[sel_Id]["contents"];
-		for(var menu in menuContentMapper){
-			var all_contents = menuContentMapper[menu].contents.map(i=>'#'+i).toString();
-			if(all_contents.length>0){
-				$(all_contents).attr('class','hide-block');
-			}
-		}
-		if(sel_contents.length>0){ $('#'+sel_contents).removeAttr('class'); }
-		menuContentMapper[sel_Id]["functions"]();
+		bootstrap_menu_contentTrigger(menuContentMapper, sel_Id);
 	}
  }
 }
