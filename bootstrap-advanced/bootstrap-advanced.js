@@ -157,6 +157,7 @@ function bootstrap_menu_contentTrigger(menuContentMapper, sel_Id){
    $(all_contents).removeAttr('class');
  }
 }
+
 function bootstrap_menu_trigger(menuContentMapper,mode, sel_Id,stepAllow){
 /* ====================================
  * FUNCTION DESCRIPTION:
