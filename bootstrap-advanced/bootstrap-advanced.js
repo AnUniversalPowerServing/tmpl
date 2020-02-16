@@ -144,15 +144,19 @@ function bootstrap_formField_hglRemove(field_Id){
 function bootstrap_menu_contentTrigger(menuContentMapper, sel_Id){
  if(menuContentMapper[sel_Id]!==undefined){
    var allContents = menuContentMapper[sel_Id].contents;
+   var all_contents = allContents.map(i=>'#'+i).toString();
+   console.log("all_contents: "+all_contents);
    for(var menu in menuContentMapper){
-    var all_contents = allContents.map(i=>'#'+i).toString();
-    if(menu===sel_Id){ $(all_contents).removeAttr('class'); } 
-	else { if(all_contents.length>0){ $(all_contents).attr('class','hide-block'); } } 
-	menuContentMapper[sel_Id]["functions"]();
-  }
+     console.log("menu: "+menu);
+     if(menu.length>0){ 
+	    var contents = menuContentMapper[menu].contents.map(i=>'#'+i).toString();
+	    $(contents).attr('class','hide-block'); 
+	 }
+	 menuContentMapper[sel_Id]["functions"]();
+   }
+   $(all_contents).removeAttr('class');
  }
 }
-
 function bootstrap_menu_trigger(menuContentMapper,mode, sel_Id,stepAllow){
 /* ====================================
  * FUNCTION DESCRIPTION:
