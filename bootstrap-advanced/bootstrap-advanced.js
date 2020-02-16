@@ -186,14 +186,26 @@ function bootstrap_menu_trigger(menuContentMapper,mode, sel_Id,stepAllow){
 "badges":"step-badges" };
  console.log(mode+" "+sel_Id);
  if(mode==='badges'){
- 
-	if(($('div[class="'+sel_mode[mode]+'"]>div>span#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
+	/*var child = $('div.'+sel_mode[mode]).children();
+	console.log('badges length: '+child.length);
+	for(var index=0;index<child.length;index++){
+	  console.log('badges: '+child.value);
+	}*/
+	var loop = 0;
+	$('div.'+sel_mode[mode]).find('div>span').each(function(){
+		var child = $(this).attr('id');
+		console.log('badges content: '+child);
+		if(child ===sel_Id){  return false; }
+		else { loop++;}
+	});
+	
+	if((loop<stepAllow) || stepAllow===-1){
 		$('#'+sel_Id).parent('div').parent('div.step-badges').children('div').children('span').removeClass('active');
 		$('#'+sel_Id).attr('class','badge active');
 		bootstrap_menu_contentTrigger(menuContentMapper, sel_Id);
 	}
  } else {
-	if(($('ul[class="'+sel_mode[mode]+'"]>li#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
+	if(($('ul.'+sel_mode[mode]+'>li#'+sel_Id).index()<=stepAllow) || stepAllow===-1){
 		$('#'+sel_Id).parent('ul').children('li').removeAttr('class');
 		$('#'+sel_Id).attr('class','active');
 		bootstrap_menu_contentTrigger(menuContentMapper, sel_Id);
