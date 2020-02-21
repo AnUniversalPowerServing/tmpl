@@ -1,0 +1,5 @@
+.input-group>.input-group-btn>.btn { padding:6.5px 12px; }
+.input-group-addon-success { background-color:#3c763d;color:#fff;border:1px solid #3c763d; }
+.input-group-addon-warning { background-color:#8a6d3b;color:#fff;border:1px solid #8a6d3b; }
+.input-group-addon-error { background-color:#a94442;color:#fff;border:1px solid #a94442; }
+.curpoint { cursor:pointer; }

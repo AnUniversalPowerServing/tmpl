@@ -43,6 +43,12 @@ function bootstrap_formField_addToField(hglApply,field_Id){
    if(!$('#'+field_Id).parent().hasClass(msg[hglApply].field+' has-feedback')){
     $('#'+field_Id).wrap('<div class="'+msg[hglApply].field+' has-feedback"></div>');
    }
+   if(inputgroup.children('span').hasClass('input-group-addon')){
+	inputgroup.children('span').addClass('input-group-addon-'+hglApply);
+   }// input-group-addon
+   if(inputgroup.children('div.input-group-btn')){
+	inputgroup.children('div.input-group-btn').children('button').addClass('input-group-addon-'+hglApply);
+   }
  } else {
     formgroup.addClass(msg[hglApply].field+' has-feedback');
  }
@@ -93,7 +99,6 @@ function bootstrap_formField_hglRemove(field_Id){
 	   if(inputgroup.children('span').hasClass("glyphicon glyphicon-remove form-control-feedback")){
           inputgroup.children('span[class="glyphicon glyphicon-remove form-control-feedback"]').remove();
        }
-	   
    } 
   } else {
       if(formgroup.hasClass('has-success has-feedback')){ formgroup.removeClass('has-success has-feedback'); }

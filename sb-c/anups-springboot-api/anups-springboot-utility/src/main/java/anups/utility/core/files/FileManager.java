@@ -9,6 +9,15 @@ import com.google.gson.GsonBuilder;
 
 public class FileManager {
 
+  public String getFileExtension(String fileName) {
+	StringBuilder sb = new StringBuilder();
+	for(int index=fileName.length()-1;index>0;index--) {
+	  if(fileName.charAt(index)=='.') { break; }
+	  else { sb.append(fileName.charAt(index)); }
+	}
+	return sb.toString();
+  }
+  
   public boolean createAFile(String mainDir, String fileName) {
 	boolean isCreated = false;
 	mainDir = mainDir.replace(".", "\\").replace("/", "\\");
