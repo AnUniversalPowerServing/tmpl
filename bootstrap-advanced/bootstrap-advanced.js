@@ -286,11 +286,54 @@ function bootstrap_switch_radioMode(name,switchMapper){
 /*****************************************************************************************************************************/
 /************************************ bootstrap-advanced-alerts **************************************************************/
 /*****************************************************************************************************************************/
+function bootstrap_message_warning(div_Id,message){
+var content='<div class="alert alert-warning alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+    content+='<strong>Warning! </strong>'+message;
+    content+='</div>';
+ document.getElementById(div_Id).innerHTML=content;
+}
+
+function bootstrap_message_error(div_Id,message){
+var content='<div class="alert alert-danger alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+    content+='<strong>Error! </strong>'+message;
+    content+='</div>';
+ document.getElementById(div_Id).innerHTML=content;
+}
+
+function bootstrap_message_success(div_Id,message){
+var content='<div class="alert alert-success alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+    content+='<strong>Success! </strong>'+message;
+    content+='</div>';
+ document.getElementById(div_Id).innerHTML=content;
+}
+
 function bootstrap_display_warning(div_Id,warning_Id){
-js_ajax("GET",PROJECT_URL+'backend/config/warning_messages.json',{},function(response){
+js_ajax("GET",PROJECT_URL+'config/warning_messages.json',{},function(response){
 var content='<div class="alert alert-warning alert-dismissible" style="margin-bottom:0px;">';
     content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
     content+='<strong>Warning!</strong> '+response[warning_Id][USR_LANG];
+    content+='</div>';
+ document.getElementById(div_Id).innerHTML=content;
+});
+}
+function bootstrap_display_error(div_Id,error_Id){
+js_ajax("GET",PROJECT_URL+'config/error_messages.json',{},function(response){
+var content='<div class="alert alert-danger alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+    content+='<strong>Warning!</strong> '+response[error_Id][USR_LANG];
+    content+='</div>';
+ document.getElementById(div_Id).innerHTML=content;
+});
+}
+function bootstrap_display_success(div_Id,success_Id){
+js_ajax("GET",PROJECT_URL+'config/success_messages.json',{},function(response){
+console.log(response);
+var content='<div class="alert alert-success alert-dismissible" style="margin-bottom:0px;">';
+    content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+    content+='<strong>Success!</strong> '+response[success_Id][USR_LANG];
     content+='</div>';
  document.getElementById(div_Id).innerHTML=content;
 });
@@ -333,16 +376,6 @@ var modalDivision = document.createElement("div");
  document.body.appendChild(modalDivision);  
  document.getElementById("alertWarningModal").innerHTML=content;
  $('#alertWarningModal').modal();
-});
-}
-function div_display_success(div_Id,success_Id){
-js_ajax("GET",PROJECT_URL+'backend/config/success_messages.json',{},function(response){
-console.log(response);
-var content='<div class="alert alert-success alert-dismissible" style="margin-bottom:0px;">';
-    content+='<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
-    content+='<strong>Success!</strong> '+response[success_Id][USR_LANG];
-    content+='</div>';
- document.getElementById(div_Id).innerHTML=content;
 });
 }
 function alert_display_success(success_Id,success_url){
