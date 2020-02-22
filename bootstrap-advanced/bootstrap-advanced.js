@@ -89,6 +89,29 @@ function bootstrap_formField_hglRemove(field_Id){
    if($('#'+field_Id).parent().is('div[class="has-success has-feedback"]')){ $('#'+field_Id).unwrap(); }
    if($('#'+field_Id).parent().is('div[class="has-warning has-feedback"]')){ $('#'+field_Id).unwrap(); }
    if($('#'+field_Id).parent().is('div[class="has-error has-feedback"]')){ $('#'+field_Id).unwrap(); }
+   
+   if(inputgroup.children('span').hasClass('input-group-addon')){
+	if(inputgroup.children('span').hasClass('input-group-addon-success')){ 
+	  inputgroup.children('span').removeClass('input-group-addon-success'); 
+	}
+	if(inputgroup.children('span').hasClass('input-group-addon-warning')){ 
+	  inputgroup.children('span').removeClass('input-group-addon-warning'); 
+	}
+	if(inputgroup.children('span').hasClass('input-group-addon-error')){ 
+	  inputgroup.children('span').removeClass('input-group-addon-error'); 
+	}
+   }// input-group-addon
+   if(inputgroup.children('div.input-group-btn')){
+     if(inputgroup.children('div.input-group-btn').children('button').hasClass('input-group-addon-success')){
+		inputgroup.children('div.input-group-btn').children('button').removeClass('input-group-addon-success');
+	 }
+	 if(inputgroup.children('div.input-group-btn').children('button').hasClass('input-group-addon-warning')){
+		inputgroup.children('div.input-group-btn').children('button').removeClass('input-group-addon-warning');
+	 }
+	 if(inputgroup.children('div.input-group-btn').children('button').hasClass('input-group-addon-error')){
+		inputgroup.children('div.input-group-btn').children('button').removeClass('input-group-addon-error');
+	 }
+   }
    if(tagName.toLowerCase()!=='button'){
        if(inputgroup.children('span').hasClass("glyphicon glyphicon-ok form-control-feedback")){
           inputgroup.children('span[class="glyphicon glyphicon-ok form-control-feedback"]').remove();
