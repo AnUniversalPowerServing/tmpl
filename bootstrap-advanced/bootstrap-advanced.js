@@ -26,6 +26,12 @@ function bootstrap_formField_addToField(hglApply,field_Id){
 			 error:{ label:'inputError', field:'has-error', icon:'glyphicon-remove', color:'#a94442' }
 		   };
  var tagName = document.getElementById(field_Id).tagName;
+ var process = true;
+ if(tagName.toLowerCase() === 'input'){
+   var type = document.getElementById(field_Id).type;
+   if(type.toLowerCase() === 'hidden'){ process = false; }
+ }
+ if(process){
  var inputgroup = $('#'+field_Id).closest('div.input-group'); // Getting closest input-group
  var formgroup = $('#'+field_Id).closest('div.form-group'); // Getting closest form-group
  // Add to Class and for Attribute to label
@@ -62,6 +68,7 @@ function bootstrap_formField_addToField(hglApply,field_Id){
     if(!$('#'+field_Id).next().is('span[class="glyphicon '+msg[hglApply].icon+' form-control-feedback"]')){
 	  $('#'+field_Id).after('<span class="glyphicon '+msg[hglApply].icon+' form-control-feedback"></span>')
 	}
+ }
  }
 }
 
